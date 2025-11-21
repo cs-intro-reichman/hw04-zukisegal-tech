@@ -96,13 +96,14 @@ public class ArrCharOps {
     */
     public static char[] concat(char[] arr1, char[] arr2) {
         char [] help= new char[arr1.length + arr2.length];
+
         for(int i=0; i<arr1.length; i++)
         {
             help[i]= arr1[i];
         }
-        for(int j=0; j<arr2.length; j++)
+        for(int i=0; i<arr2.length; i++)
         {
-            help[arr1.length + j]= arr2[j];
+            help[arr1.length + i]= arr2[i];
         }
         return help;
     }
@@ -115,6 +116,7 @@ public class ArrCharOps {
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) 
     {
         char [] help= new char[endIndex-beginIndex];
+
         for( int i=beginIndex; i<endIndex; i++)
         {
             help[i-beginIndex]=arr[i];
@@ -122,6 +124,7 @@ public class ArrCharOps {
         return help;
     }
 
+    // test
      /** Returns a single integer that represents the given array. This integer is sometimes 
      *  referred to as the array's "hash code". Later in the course we'll explain what these 
      *  hash codes are used for. For now, simply implement the specification given below.
