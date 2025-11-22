@@ -27,22 +27,26 @@ public class MyString {
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) 
     {
-        boolean check= true;
+       
         str1= lowerCase(str1);
         str2= lowerCase(str2);
         if(str1.length()<str2.length())
             return false;
-        for(int i=0; i<str1.length(); i++)
+        for(int i=0; i<str1.length()-str2.length(); i++)
         {
-            check= true;
+            boolean check= true;
             for(int j=0; j<str2.length(); j++)
             {
                 if(str1.charAt(i+j)!=str2.charAt(j))
+                {
                     check= false;
+                    break;
+                }
             }
-        }
         if(check==true)
             return true;
+       
+        }
         return false;
     }
 }
