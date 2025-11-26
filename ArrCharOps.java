@@ -45,16 +45,15 @@ public class ArrCharOps {
      */
     public static boolean equals(char[] arr1, char[] arr2)
      {
-        if(arr1.length!= arr2.length){
+        if (arr1 == arr2) 
+            return true;
+        if (arr1 == null || arr2 == null) 
             return false;
-        }
-        for(int i=0; i<arr1.length; i++)
-        {
-            for(int j=0; j<arr2.length; j++)
-            {
-                if(arr1[i]!=arr2[j])
-                    return false;
-            }
+        if (arr1.length != arr2.length) 
+            return false;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) 
+                return false;
         }
         return true;
     }
@@ -95,15 +94,12 @@ public class ArrCharOps {
     /* Returns an array which is the concatanation of the two given arrays.
     */
     public static char[] concat(char[] arr1, char[] arr2) {
-        char [] help= new char[arr1.length + arr2.length];
-
-        for(int i=0; i<arr1.length; i++)
-        {
+        char [] help = new char[arr1.length + arr2.length];
+        for(int i=0; i<arr1.length; i++) {
             help[i]= arr1[i];
         }
-        for(int i=0; i<arr2.length; i++)
-        {
-            help[arr1.length + i]= arr2[i];
+        for(int j=0; j<arr2.length; j++) {
+            help[arr1.length + j]= arr2[j];
         }
         return help;
     }
@@ -115,11 +111,13 @@ public class ArrCharOps {
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) 
     {
-        char [] help= new char[endIndex-beginIndex];
-
+        if (beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex) {
+            throw new IndexOutOfBoundsException();
+        }
+        char [] help= new char[endIndex - beginIndex];
         for( int i=beginIndex; i<endIndex; i++)
         {
-            help[i-beginIndex]=arr[i];
+            help[i - beginIndex] = arr[i];
         }
         return help;
     }
@@ -175,7 +173,7 @@ public class ArrCharOps {
         if(str1.length()>str2.length())
             return 1;
 
-        if(str2.length()>str1.length())
+        if(str2.length()<str1.length())
             return -1;
         
 
