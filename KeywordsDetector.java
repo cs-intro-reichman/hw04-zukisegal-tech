@@ -25,8 +25,6 @@ public class KeywordsDetector {
         for(int i=0; i<sentences.length; i++)
         {
             String ch1= sentences[i].toLowerCase();
-        
-
             for(int j=0; j<keywords.length; i++)
             {
                 String ch2= keywords[j].toLowerCase();
@@ -37,5 +35,7 @@ public class KeywordsDetector {
         
 
     }
+       
+    
 
 }

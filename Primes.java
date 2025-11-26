@@ -1,34 +1,44 @@
+
 public class Primes
- {
-    public static void main(String[] args)
-    {
-        int n= args.length;
-        boolean[] isPrime= new boolean[n+1];
-        for (int i = 2; i <= n; i++) 
-        {
-            isPrime[i] = true;
-        }
+{
+   public Primes() {
+   }
 
-        for(int j=2; j*j<=n; j++)
-        {
-             isPrime[j]=false;
-             if(isPrime[j]==true)
-            {
-                for(int i=j*j; i<=n; i++)
-                    isPrime[i]=false;
-            }
-        }
-        for(int i=2; i<=n; i++)
-        {
-            int count=0;
-            if(isPrime[i]==true)
-            {
-                count++;
-                System.out.println(isPrime[i]);
-            }
-             System.out.println("There are " +  count + "primes between 2 and" + n );
-        }
-       
+   public static void main(String[] var0) {
+      if (var0.length != 0) {
+         int var1 = Integer.parseInt(var0[0]);
+         printPrimesUpTo(var1);
+      }
+   }
 
-    }
+   public static void printPrimesUpTo(int var0) {
+      if (var0 < 2) {
+         System.out.println("אין מספרים ראשוניים.");
+      } else {
+         System.out.println("Prime numbers up to " + var0 + ":");
+         int var1 = 0;
+
+         for(int var2 = 2; var2 <= var0; ++var2) {
+            if (isPrime(var2)) {
+               System.out.println(var2);
+               ++var1;
+            }
+         }
+
+         double var5 = (double)var1 / (double)var0 * 100.0;
+         int var4 = (int)Math.round(var5);
+         System.out.println("There are " + var1 + " primes between 2 and " + var0 + " (" + var4 + "% are primes)");
+      }
+   }
+
+   public static boolean isPrime(int var0) {
+      for(int var1 = 2; var1 * var1 <= var0; ++var1) {
+         if (var0 % var1 == 0) {
+            return false;
+         }
+      }
+
+      return true;
+   }
 }
+
