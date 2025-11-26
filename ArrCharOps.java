@@ -170,14 +170,8 @@ public class ArrCharOps {
         if (str1.length() == 0 || str2.length() == 0)
             return -2;
 
-        if(str1.length()>str2.length())
-            return 1;
-
-        if(str2.length()<str1.length())
-            return -1;
-        
-
-        for(int i=0; i<str1.length(); i++)
+        int minLen = Math.min(str1.length(), str2.length());
+        for(int i=0; i<minLen; i++)
         {
             if (str1.charAt(i) < str2.charAt(i)){
                 return -1;
@@ -185,6 +179,8 @@ public class ArrCharOps {
                 return 1;
             }
         }
+        if (str1.length() < str2.length()) return -1;
+        if (str1.length() > str2.length()) return 1;
         return 0;
     }
 }
